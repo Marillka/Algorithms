@@ -8,11 +8,12 @@ public interface Queue<E> {
 
     E peekFront();// показывает первый элемент в очереди
 
-    int size;
 
-    boolean isEmpty;
+    int size();
 
-    boolean isFull;
+    boolean isEmpty();
 
-    void display;
+    boolean isFull();
+
+    void display();
 }

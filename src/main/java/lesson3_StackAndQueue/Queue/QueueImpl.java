@@ -1,5 +1,7 @@
 package lesson3_StackAndQueue.Queue;
 
+import java.util.Arrays;
+
 public class QueueImpl<E> implements Queue<E> {
 
     private final E[] data;
@@ -25,16 +27,58 @@ public class QueueImpl<E> implements Queue<E> {
         size++;
         return true;
 
-        //105 55
     }
 
     @Override
     public E remove() {
-        return null;
+        if (isEmpty()) {
+            return null;
+        }
+
+        // организовать закольцовывание
+
+        E value = data[head];
+        data[head++] = null;
+        size--;
+        return value;
     }
 
     @Override
     public E peekFront() {
-        return null;
+        return data[head];
     }
+
+    @Override
+    public int size() {
+        return size;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    @Override
+    public boolean isFull() {
+        return size == data.length;
+    }
+
+    @Override
+    public void display() {
+        System.out.println(this);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("[");
+
+        for (int i = head; i <= tail ; i++) {
+            sb.append(data[i]);
+            if (i != tail) {
+                sb.append(", ");
+            }
+        }
+        return sb.append("]").toString();
+    }
+
 }

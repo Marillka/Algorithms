@@ -1,9 +1,13 @@
 package lesson3_StackAndQueue.Stack;
 
+import lesson3_StackAndQueue.Queue.Queue;
+import lesson3_StackAndQueue.Queue.QueueImpl;
+
 public class Test3 {
 
     public static void main(String[] args) {
-        testStack();
+//        testStack();
+        textQueue();
     }
 
 
@@ -50,6 +54,34 @@ top value 22
          Когда делали калькулятор со студентами Java. И чтобы перевести строку из калькулятора в математическое выражение, там показанно как это преобразовать.
          */
 
+    }
+
+    private static void textQueue() {
+        Queue<Integer> queue = new QueueImpl<>(4);
+
+        System.out.println("add element: " + queue.insert(34));
+        System.out.println("add element: " + queue.insert(12));
+        System.out.println("add element: " + queue.insert(20));
+        System.out.println("add element: " + queue.insert(16));
+
+        System.out.println("add element: " + queue.insert(14));
+        System.out.println("add element: " + queue.insert(17));
+
+        queue.display();
+        System.out.println("remove: " + queue.remove());
+        queue.display();
+
+        /*
+add element: true
+add element: true
+add element: true
+add element: true
+add element: false
+add element: false
+[34, 12, 20, 16]
+remove: 34
+[12, 20, 16]
+         */
     }
 
 
