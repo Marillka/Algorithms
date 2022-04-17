@@ -27,7 +27,6 @@ public class Main {
 
         // ТЕСТ ИНТЕРПОЛЯЦИОННОЙ СОРТИРОВКИ
         System.out.println(InterpolationSearch.search(arr, NUM2FIND));
-
     }
 
     /*

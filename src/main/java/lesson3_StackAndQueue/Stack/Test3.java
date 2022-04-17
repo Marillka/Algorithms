@@ -2,6 +2,8 @@ package lesson3_StackAndQueue.Stack;
 
 import lesson3_StackAndQueue.Queue.Queue;
 import lesson3_StackAndQueue.Queue.QueueImpl;
+import lesson4_СвязанныеСписки.LinkedListStack;
+import lesson4_СвязанныеСписки.LinkedQueue;
 
 public class Test3 {
 
@@ -13,7 +15,8 @@ public class Test3 {
 
     public static void testStack() {
 
-        Stack<Integer> stack = new StackImpl<>(4);
+//        Stack<Integer> stack = new StackImpl<>(4);
+        Stack<Integer> stack = new LinkedListStack<>();
 
         System.out.println(stack.push(12));
         System.out.println(stack.push(16));
@@ -40,6 +43,17 @@ false
 top value 5
 top value 22
 [22, 16, 12]
+
+true
+true
+true
+true
+true
+true
+[32 -> 1 -> 5 -> 22 -> 16 -> 12]
+top value 32
+top value 1
+[1 -> 5 -> 22 -> 16 -> 12]
          */
 
         /*
@@ -57,7 +71,8 @@ top value 22
     }
 
     private static void textQueue() {
-        Queue<Integer> queue = new QueueImpl<>(4);
+//        Queue<Integer> queue = new QueueImpl<>(4);
+        Queue<Integer> queue = new LinkedQueue<>();
 
         System.out.println("add element: " + queue.insert(34));
         System.out.println("add element: " + queue.insert(12));
@@ -71,7 +86,7 @@ top value 22
         System.out.println("remove: " + queue.remove());
         queue.display();
 
-        /*
+        /* QueueImpl
 add element: true
 add element: true
 add element: true
@@ -81,6 +96,19 @@ add element: false
 [34, 12, 20, 16]
 remove: 34
 [12, 20, 16]
+         */
+
+        /* LinkedQueue
+add element: true
+add element: true
+add element: true
+add element: true
+add element: true
+add element: true
+[34 -> 12 -> 20 -> 16 -> 14 -> 17]
+remove: 34
+[12 -> 20 -> 16 -> 14 -> 17]
+
          */
     }
 
