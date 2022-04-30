@@ -2,7 +2,9 @@ package lesson4_СвязанныеСписки;
 
 public interface LinkedList<E> {
 
-    void insertFirst(E value);// добавление в самое начало
+    boolean insertFirst(E value);// добавление в самое начало
+
+    boolean insert(E value, int number);// добавление
 
     E removeFirst();// удаление самого начала
 
@@ -26,6 +28,7 @@ public interface LinkedList<E> {
             this.value = value;
             this.next = next;
         }
+
     }
 
 }

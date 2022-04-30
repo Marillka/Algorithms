@@ -9,14 +9,36 @@ public class TestMain4 {
     public static void main(String[] args) {
 //        testLinkedList();
 //        testHomeWork();
-        testIterator();
+//        testIterator();
+
+        var linkedList = new SimpleLinkedListImpl<>();
+
+        linkedList.insertFirst(0);
+        linkedList.insertFirst(5);
+        linkedList.insertFirst(6);
+        linkedList.insertFirst(7);
+        linkedList.insertFirst(8);
+        linkedList.insertFirst(9);
+        linkedList.insertFirst(10);
+        linkedList.insertFirst(11);
+        linkedList.insertFirst(12);
+
+        linkedList.display();
+        System.out.println(linkedList.size());
+
+        linkedList.insert(111,6);
+        linkedList.display();
+
+        linkedList.insert(112,8);
+
+        linkedList.display();
 
 
     }
 
     private static void testLinkedList() {
 
-//        var linkedList = new SimpleLinkedList<>();
+//        var linkedList = new SimpleLinkedListImpl<>();
         var linkedList = new TwoSideLinkedListImpl<>();
 
         linkedList.insertFirst(1);
@@ -44,6 +66,7 @@ public class TestMain4 {
         linkedList.remove(11);
 
         linkedList.display();
+
         /* SIMPLELINKEDLIST
 [8 -> 7 -> 6 -> 5 -> 4 -> 3 -> 2 -> 1]
 Find 2: true
@@ -117,6 +140,9 @@ remove first: 8
             }
         }
     }
+
+
+
 }
 
 

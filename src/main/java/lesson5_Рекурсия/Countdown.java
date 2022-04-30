@@ -13,7 +13,6 @@ public class Countdown {
             return;
         }
 
-
         System.out.println(n);
 //        countdown(n - 1);
         countdown(--n);// Зависнем в рекурсии, пока она не остановится

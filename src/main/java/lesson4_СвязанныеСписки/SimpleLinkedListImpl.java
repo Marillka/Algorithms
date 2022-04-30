@@ -2,21 +2,52 @@ package lesson4_СвязанныеСписки;
 
 import java.util.Iterator;
 
+/*
+Интерфейс iterable позволяет сказать компилятору, что мы можем перебирать эту структура данныхю. Для этого надо добавить абсрактный интерфейс итератор
+ */
 public class SimpleLinkedListImpl<E> implements LinkedList<E>, Iterable<E> {
-
-    /*
-    Интерфейс iterable позволяет сказать компилятору, что мы можем перебирать эту структура данныхю. Для этого надо добавить абсрактный интерфейс итератор
-     */
 
     // ссылка на самый первый элемент. SimpleLinkedList - и есть та самая точка входа.
     protected Node<E> first;
+
     // Количество всех элементов в нашей структуре
     protected int size;
 
     @Override
-    public void insertFirst(E value) {
+    public boolean insertFirst(E value) {
         first = new Node<>(value, first);
         size++;
+        return true;
+    }
+
+    @Override
+    public boolean insert(E value, int number) {
+        Node<E> current = first;
+        Node<E> next = first.next;
+        Node<E> newNode = new Node<>(value, null);
+
+        int count = size - 1;
+
+        //1 частный случай: вставка в самое начало (вверх)
+        if (number == size){
+            return false;
+        } else if (number == 0)  {// 2 частный случай: вставка в самый конец (вниз)
+            insertFirst(value);
+        } else if (number > size - 1) {// 3 частный случай, число вставки больше чем длинна списка
+            return false;
+        } else {
+            while (count != number + 1) {
+
+                current = current.next;
+                next = current.next;
+
+                count--;
+            }
+
+            current.next = newNode;
+            newNode.next = next;
+        }
+        return true;
     }
 
     @Override
@@ -122,7 +153,7 @@ public class SimpleLinkedListImpl<E> implements LinkedList<E>, Iterable<E> {
 
     // должен создавать здесь экземпляр итератора
     public Iterator<E> iterator() {
-        return  null; /*new ListIterator<E>();*/
+        return null; /*new ListIterator<E>();*/
     }
 
     private class ListIterator<E> implements Iterator {
