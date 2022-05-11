@@ -17,8 +17,6 @@ public class HashTableImpl<K, V> implements HashTable<K, V> {
             this.value = value;
         }
 
-
-
         @Override
         public K getKey() {
             return key;
